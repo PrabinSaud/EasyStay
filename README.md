@@ -1,4 +1,37 @@
 # EasyStay 
+
+EasyStay/
+│
+├── README.md
+│   └── Project description, features, tech stack, and usage
+│
+├── database/
+│   ├── easystay_schema.sql
+│   │   └── CREATE TABLE statements
+│   ├── sample_data.sql
+│   │   └── Sample INSERT data for testing
+│
+├── apex/
+│   ├── application_export.sql
+│   │   └── Oracle APEX application export file
+│
+├── assets/
+│   ├── images/
+│   │   ├── hero_image.png
+│   │   └── icons/
+│   └── screenshots/
+│       ├── home_page.png
+│       ├── dashboard.png
+│       └── rooms_page.png
+│
+├── docs/
+│   ├── er_diagram.png
+│   ├── project_report.pdf
+│   └── wireframes/
+│       └── home_wireframe.png
+│
+└── .gitignore
+
 📌 EasyStay – Student Accommodation & Resource Platform
 📖 Project Description
 
