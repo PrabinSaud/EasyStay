@@ -1,0 +1,21 @@
+ItemID,ItemName,Category,ItemCondition,SellerID
+1,"Study Table",Furniture,GOOD,1
+2,"Office Chair",Furniture,USED,2
+3,"Single Bed",Furniture,GOOD,3
+4,Wardrobe,Furniture,USED,4
+5,"Dining Table",Furniture,GOOD,5
+6,Bookshelf,Furniture,NEW,6
+7,Mattress,Furniture,USED,7
+8,Sofa,Furniture,GOOD,8
+9,"Plastic Chair",Furniture,USED,9
+10,"Computer Table",Furniture,GOOD,10
+11,Cupboard,Furniture,USED,11
+12,"Wooden Bed",Furniture,GOOD,12
+13,"Side Table",Furniture,NEW,13
+14,"Office Desk",Furniture,GOOD,14
+15,"TV Stand",Furniture,USED,15
+16,"Study Chair",Furniture,GOOD,16
+17,"Dining Chair",Furniture,USED,17
+18,"Foldable Table",Furniture,NEW,18
+19,Recliner,Furniture,GOOD,19
+20,"Shoe Rack",Furniture,USED,20

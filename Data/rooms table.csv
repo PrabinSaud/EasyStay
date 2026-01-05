@@ -1,0 +1,21 @@
+RoomID,RoomType,Location,Rent,Availability,Contact,StudentID
+1,"Single Room","BTM Layout",6000.00,YES,9876543201,1
+2,"Double Room",Marathahalli,8500.00,YES,9876543202,2
+3,PG,Whitefield,5500.00,NO,9876543203,3
+4,"Single Room",Yelahanka,5000.00,YES,9876543204,4
+5,Studio,"Electronic City",9000.00,YES,9876543205,5
+6,"Double Room","HSR Layout",8000.00,NO,9876543206,6
+7,"Single Room",Banashankari,6200.00,YES,9876543207,7
+8,PG,"KR Puram",4800.00,YES,9876543208,8
+9,Studio,Indiranagar,12000.00,NO,9876543209,9
+10,"Single Room",Jayanagar,6500.00,YES,9876543210,10
+11,"Double Room",Malleshwaram,7800.00,YES,9876543211,11
+12,PG,Yeshwanthpur,5000.00,NO,9876543212,12
+13,"Single Room",Hebbal,5900.00,YES,9876543213,13
+14,Studio,Bellandur,11000.00,YES,9876543214,14
+15,"Double Room",Rajajinagar,8200.00,NO,9876543215,15
+16,PG,Kengeri,4500.00,YES,9876543216,16
+17,"Single Room","RT Nagar",6100.00,YES,9876543217,17
+18,Studio,Sarjapur,10000.00,NO,9876543218,18
+19,"Double Room",Domlur,8300.00,YES,9876543219,19
+20,PG,Majestic,4200.00,YES,9876543220,20

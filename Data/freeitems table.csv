@@ -1,0 +1,21 @@
+FreeItemID,ItemName,Category,GiverID
+1,"Old Books",Books,1
+2,"Water Bottles",Kitchen,2
+3,Curtains,Home,3
+4,"Plastic Plates",Kitchen,4
+5,Shoes,Clothing,5
+6,Backpack,Bags,6
+7,"Laptop Bag",Bags,7
+8,"Study Lamp",Electronics,8
+9,Mats,Home,9
+10,"Notebook Bundle",Books,10
+11,"Cooking Pan",Kitchen,11
+12,Bedsheet,Home,12
+13,Whiteboard,Study,13
+14,"Extension Box",Electronics,14
+15,"Coffee Mug",Kitchen,15
+16,Helmet,Accessories,16
+17,Blanket,Home,17
+18,"Pen Stand",Study,18
+19,Mouse,Electronics,19
+20,"Power Strip",Electronics,20
