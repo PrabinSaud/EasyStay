@@ -120,6 +120,86 @@ Rent
 FROM Rooms
 WHERE Availability = 'NO';
 
+/* =========================================================
+   EASY STAY – DASHBOARD AVAILABILITY QUERIES
+   ========================================================= */
+
+
+/* Q1. What percentage of total rooms are currently available? */
+SELECT 
+  ROUND(
+    (SUM(CASE WHEN Availability = 'YES' THEN 1 ELSE 0 END) * 100.0) 
+    / COUNT(*), 
+    2
+  ) AS available_percentage
+FROM Rooms;
+
+
+/* Q2. What percentage of rooms are occupied location-wise? */
+SELECT 
+  Location,
+  ROUND(
+    (SUM(CASE WHEN Availability = 'NO' THEN 1 ELSE 0 END) * 100.0) 
+    / COUNT(*),
+    2
+  ) AS occupied_percentage
+FROM Rooms
+GROUP BY Location;
+
+
+/* Q3. Which location has the highest number of occupied rooms? */
+SELECT 
+  Location,
+  COUNT(*) AS occupied_rooms
+FROM Rooms
+WHERE Availability = 'NO'
+GROUP BY Location
+ORDER BY occupied_rooms DESC
+LIMIT 1;
+
+
+/* Q4. Which room type has the lowest availability rate? */
+SELECT 
+  RoomType,
+  ROUND(
+    (SUM(CASE WHEN Availability = 'YES' THEN 1 ELSE 0 END) * 100.0) 
+    / COUNT(*),
+    2
+  ) AS availability_rate
+FROM Rooms
+GROUP BY RoomType
+ORDER BY availability_rate ASC
+LIMIT 1;
+
+
+/* Q5. How many rooms changed availability status (YES vs NO)? */
+SELECT 
+  Availability,
+  COUNT(*) AS total_rooms
+FROM Rooms
+GROUP BY Availability;
+
+
+/* Q6. Which locations have zero available rooms? */
+SELECT 
+  Location
+FROM Rooms
+GROUP BY Location
+HAVING SUM(CASE WHEN Availability = 'YES' THEN 1 ELSE 0 END) = 0;
+
+
+/* Q7. What is the availability trend by room type? */
+SELECT 
+  RoomType,
+  SUM(CASE WHEN Availability = 'YES' THEN 1 ELSE 0 END) AS available_rooms,
+  SUM(CASE WHEN Availability = 'NO' THEN 1 ELSE 0 END) AS occupied_rooms
+FROM Rooms
+GROUP BY RoomType;
+
+
+
+
+
 
 
 
