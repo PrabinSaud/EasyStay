@@ -197,7 +197,81 @@ FROM Rooms
 GROUP BY RoomType;
 
 
+/* =========================================================
+   EASY STAY – DASHBOARD PRICING & AFFORDABILITY QUERIES
+   ========================================================= */
 
+
+/* Q1. What percentage of rooms fall under ₹5,000 rent? */
+SELECT 
+ROUND(
+(SUM(CASE WHEN Rent < 5000 THEN 1 ELSE 0 END) * 100.0) 
+/ COUNT(*),
+2
+) AS under_5000_percentage
+FROM Rooms;
+
+
+/* Q2. How many rooms are priced between ₹5,000 and ₹8,000? */
+SELECT 
+  COUNT(*) AS rooms_5000_to_8000
+FROM Rooms
+WHERE Rent BETWEEN 5000 AND 8000;
+
+/* Q3. Which locations have average rent above overall system average? */
+SELECT 
+  Location,
+  ROUND(AVG(Rent), 2) AS average_rent
+FROM Rooms
+GROUP BY Location
+HAVING AVG(Rent) > (SELECT AVG(Rent) FROM Rooms);
+
+
+/* Q4. Which room types are most affordable on average? */
+SELECT 
+  RoomType,
+  ROUND(AVG(Rent), 2) AS average_rent
+FROM Rooms
+GROUP BY RoomType
+ORDER BY average_rent ASC;
+
+
+/* Q5. What is the rent distribution (low, medium, high)? */
+SELECT 
+  CASE
+    WHEN Rent < 5000 THEN 'LOW'
+    WHEN Rent BETWEEN 5000 AND 8000 THEN 'MEDIUM'
+    ELSE 'HIGH'
+  END AS rent_category,
+  COUNT(*) AS total_rooms
+FROM Rooms
+GROUP BY rent_category;
+
+
+/* Q6. Which students are listing high-rent rooms (> ₹10,000)? */
+SELECT 
+  s.StudentID,
+  s.FirstName,
+  s.LastName,
+  r.Location,
+  r.Rent
+FROM Students s
+JOIN Rooms r ON s.StudentID = r.StudentID
+WHERE r.Rent > 10000;
+
+
+/* Q7. What is the average rent difference between Single and Double rooms? */
+SELECT 
+ROUND(
+(SELECT AVG(Rent) 
+FROM Rooms 
+WHERE RoomType = 'Single Room')
+-
+(SELECT AVG(Rent) 
+FROM Rooms 
+WHERE RoomType = 'Double Room'),
+2
+) AS avg_rent_difference;
 
 
 
