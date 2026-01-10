@@ -66,7 +66,7 @@ SELECT NumberOfStudents, COUNT(*) AS total_requests
 FROM RoomSharing
 GROUP BY NumberOfStudents
 ORDER BY total_requests DESC;
-
+ 
 
 /* Q10. How many students are active in each module? */
 SELECT
@@ -79,8 +79,8 @@ SELECT
 SELECT s.StudentID, s.FirstName, s.LastName
 FROM Students s
 WHERE s.StudentID IN (SELECT StudentID FROM Rooms)
-  AND s.StudentID IN (SELECT SellerID FROM Furnitures)
-  AND s.StudentID IN (SELECT GiverID FROM FreeItems);
+AND s.StudentID IN (SELECT SellerID FROM Furnitures)
+AND s.StudentID IN (SELECT GiverID FROM FreeItems);
 
 
 /* Q12. Which colleges contribute the most room listings? */
@@ -238,12 +238,12 @@ ORDER BY average_rent ASC;
 
 /* Q5. What is the rent distribution (low, medium, high)? */
 SELECT 
-  CASE
-    WHEN Rent < 5000 THEN 'LOW'
-    WHEN Rent BETWEEN 5000 AND 8000 THEN 'MEDIUM'
-    ELSE 'HIGH'
-  END AS rent_category,
-  COUNT(*) AS total_rooms
+CASE
+WHEN Rent < 5000 THEN 'LOW'
+WHEN Rent BETWEEN 5000 AND 8000 THEN 'MEDIUM'
+ELSE 'HIGH'
+END AS rent_category,
+COUNT(*) AS total_rooms
 FROM Rooms
 GROUP BY rent_category;
 
@@ -272,6 +272,189 @@ FROM Rooms
 WHERE RoomType = 'Double Room'),
 2
 ) AS avg_rent_difference;
+
+/* =========================================================
+   EASY STAY – ROOM SHARING ANALYTICS
+   ========================================================= */
+
+
+/* Q1. How many total room sharing requests are available in the system? */
+SELECT
+COUNT(*) AS Total_Roomsharing
+FROM roomsharing;
+
+/* Q2. What percentage of rooms support sharing? */
+SELECT 
+ROUND((COUNT(DISTINCT rs.RoomID) * 100.0) / 
+(SELECT COUNT(*) FROM Rooms),2) AS sharing_room_percentage
+FROM RoomSharing rs;
+
+
+/* Q3. What is the average sharing budget per student? */
+SELECT
+ROUND(AVG(Budget),2) AS AvgBudget
+FROM roomsharing;
+
+/* Q4. What is the average sharing budget per room? */
+SELECT 
+ROUND(AVG(Budget * NumberOfStudents), 2) AS avg_total_budget_per_room
+FROM RoomSharing;
+
+
+/* Q5. Which gender preference is most common in room sharing? */
+SELECT 
+  Gender,
+  COUNT(*) AS total_requests
+FROM RoomSharing
+GROUP BY Gender
+ORDER BY total_requests DESC
+LIMIT 1;
+
+
+/* Q6. What is the distribution of sharing requests by gender? */
+SELECT 
+  Gender,
+  COUNT(*) AS total_requests
+FROM RoomSharing
+GROUP BY Gender;
+
+
+/* Q7. What is the most common number of students sharing a room? */
+SELECT 
+  NumberOfStudents,
+  COUNT(*) AS total_requests
+FROM RoomSharing
+GROUP BY NumberOfStudents
+ORDER BY total_requests DESC
+LIMIT 1;
+
+
+/* Q8. What is the average number of students per shared room? */
+SELECT 
+  ROUND(AVG(NumberOfStudents), 2) AS avg_students_per_room
+FROM RoomSharing;
+
+
+/* Q9. Which rooms allow the highest number of students to share? */
+SELECT 
+  RoomID,
+  NumberOfStudents
+FROM RoomSharing
+ORDER BY NumberOfStudents DESC;
+
+
+/* Q10. Which locations have the highest number of room sharing requests? */
+SELECT 
+  r.Location,
+  COUNT(*) AS total_requests
+FROM RoomSharing rs
+JOIN Rooms r 
+ON rs.RoomID = r.RoomID
+GROUP BY r.Location
+ORDER BY total_requests DESC;
+
+
+/* Q11. What is the average sharing budget by gender preference? */
+SELECT 
+  Gender,
+  ROUND(AVG(Budget), 2) AS avg_budget
+FROM RoomSharing
+GROUP BY Gender;
+
+
+/* Q12. What is the average sharing budget by number of students? */
+SELECT 
+  NumberOfStudents,
+  ROUND(AVG(Budget), 2) AS avg_budget
+FROM RoomSharing
+GROUP BY NumberOfStudents;
+
+
+/* Q13. Which room types are most frequently used for sharing? */
+SELECT 
+  r.RoomType,
+  COUNT(*) AS total_requests
+FROM RoomSharing rs
+JOIN Rooms r 
+ON rs.RoomID = r.RoomID
+GROUP BY r.RoomType
+ORDER BY total_requests DESC;
+
+
+/* Q14. How many sharing requests are linked to unavailable rooms? */
+SELECT 
+  COUNT(*) AS unavailable_sharing_requests
+FROM RoomSharing rs
+JOIN Rooms r 
+ON rs.RoomID = r.RoomID
+WHERE r.Availability = 'NO';
+
+
+/* Q15. Which rooms have unrealistic sharing budgets (total budget < rent)? */
+SELECT 
+  r.RoomID,
+  r.Location,
+  r.Rent,
+  rs.Budget * rs.NumberOfStudents AS total_budget
+FROM RoomSharing rs
+JOIN Rooms r 
+ON rs.RoomID = r.RoomID
+WHERE rs.Budget * rs.NumberOfStudents < r.Rent;
+
+
+/* Q16. What is the total sharing budget per room (budget × number of students)? */
+SELECT 
+  RoomID,
+  Budget * NumberOfStudents AS total_budget
+FROM RoomSharing;
+
+
+/* Q17. Which locations have high sharing demand but low room availability? */
+SELECT 
+  r.Location,
+  COUNT(rs.ShareID) AS sharing_requests,
+  SUM(CASE 
+  WHEN r.Availability = 'YES' THEN 1 
+  ELSE 0 
+  END) AS available_rooms
+FROM Rooms r
+LEFT JOIN RoomSharing rs 
+ON r.RoomID = rs.RoomID
+GROUP BY r.Location
+HAVING sharing_requests > available_rooms;
+
+
+/* Q18. What percentage of sharing requests are gender-specific (MALE or FEMALE)? */
+SELECT 
+ROUND(
+(SUM(CASE 
+WHEN Gender IN ('MALE','FEMALE') THEN 1 
+ELSE 0 
+END) * 100.0)/ COUNT(*),2) AS gender_specific_percentage
+FROM RoomSharing;
+
+
+/* Q19. Which sharing requests exceed normal group size (more than 4 students)? */
+SELECT 
+  *
+FROM RoomSharing
+WHERE NumberOfStudents > 4;
+
+
+/* Q20. Which students own rooms that are frequently requested for sharing? */
+SELECT 
+  s.StudentID,
+  s.FirstName,
+  COUNT(rs.ShareID) AS total_requests
+FROM Students s
+JOIN Rooms r 
+ON s.StudentID = r.StudentID
+JOIN RoomSharing rs 
+ON r.RoomID = rs.RoomID
+GROUP BY s.StudentID, s.FirstName
+ORDER BY total_requests DESC;
+
+
 
 
 
