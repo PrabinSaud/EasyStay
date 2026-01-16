@@ -1,0 +1,66 @@
+// EasyStay_Professional_ERD.dbml (Case-Sensitive)
+
+Table Students {
+  StudentID int [pk, increment]
+  FirstName varchar(50) [not null]
+  LastName varchar(50)
+  PhoneNumber varchar(15) [not null]
+  Email varchar(100)
+  City varchar(50)
+  College varchar(100)
+  CreatedAt datetime [not null]
+}
+
+Table Rooms {
+  RoomID int [pk, increment]
+  OwnerStudentID int [not null, ref: > Students.StudentID]
+  RoomType varchar(50) [not null] // Single, Double, PG, Studio
+  Location varchar(100) [not null]
+  Rent decimal(10,2) [not null]
+  ContactPhone varchar(15)
+  AvailabilityStatus varchar(20) [not null] // AVAILABLE, OCCUPIED, PENDING
+  CreatedAt datetime [not null]
+}
+
+Table RoomSharingRequests {
+  RequestID int [pk, increment]
+  RoomID int [not null, ref: > Rooms.RoomID]
+  RequesterStudentID int [not null, ref: > Students.StudentID]
+  BudgetPerPerson decimal(10,2) [not null]
+  GenderPreference varchar(10) [not null] // MALE, FEMALE, ANY
+  RequiredStudents int [not null]
+  RequestStatus varchar(20) [not null] // OPEN, ACCEPTED, CLOSED
+  CreatedAt datetime [not null]
+}
+
+Table FurnitureListings {
+  ItemID int [pk, increment]
+  SellerStudentID int [not null, ref: > Students.StudentID]
+  ItemName varchar(100) [not null]
+  Category varchar(50) [not null] // Furniture
+  ItemCondition varchar(10) [not null] // NEW, GOOD, USED
+  Price decimal(10,2) [not null]
+  Description varchar(255)
+  ListingStatus varchar(20) [not null] // AVAILABLE, SOLD
+  CreatedAt datetime [not null]
+}
+
+Table FreeItems {
+  FreeItemID int [pk, increment]
+  GiverStudentID int [not null, ref: > Students.StudentID]
+  ItemName varchar(100) [not null]
+  Category varchar(50) [not null] // Books, Kitchen, Home, Electronics etc
+  ItemCondition varchar(10) [not null] // NEW, GOOD, USED
+  Notes varchar(255)
+  PickupStatus varchar(20) [not null] // AVAILABLE, GIVEN
+  CreatedAt datetime [not null]
+}
+
+Table TradeItems {
+  TradeID int [pk, increment]
+  StudentID int [not null, ref: > Students.StudentID]
+  ItemOffer varchar(100) [not null]
+  ItemNeed varchar(100) [not null]
+  TradeStatus varchar(20) [not null] // OPEN, MATCHED, CLOSED
+  CreatedAt datetime [not null]
+}
