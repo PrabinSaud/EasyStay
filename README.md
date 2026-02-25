@@ -43,18 +43,19 @@ EasyStay/
 
 
 ---
-
 ## 🖼️ Application Screenshots
 
-### 🏠 Home Page
-![Home Page](assets/screenshots/home.png)
-
-### 📊 Dashboard
-![Dashboard](assets/screenshots/dashboard.png)
-
-### 🏘️ Rooms Page
-![Rooms Page](assets/screenshots/rooms.png)
-
+<p align="center">
+  <img src="Outputs/Screenshot%202026-02-25%20112744.png" width="800">
+  <br><br>
+  <img src="Outputs/Screenshot%202026-02-25%20112801.png" width="800">
+  <br><br>
+  <img src="Outputs/Screenshot%202026-02-25%20112827.png" width="800">
+  <br><br>
+  <img src="Outputs/Screenshot%202026-02-25%20112854.png" width="800">
+  <br><br>
+  <img src="Outputs/Screenshot%202026-02-25%20112921.png" width="800">
+</p>
 ---
 
 # 📌 EasyStay – Student Accommodation & Resource Platform  
