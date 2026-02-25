@@ -47,13 +47,13 @@ EasyStay/
 ## 🖼️ Application Screenshots
 
 ### 🏠 Home Page
-![Home Page](assets/screenshots/home_page.png)
+![Home Page](assets/screenshots/home.png)
 
 ### 📊 Dashboard
 ![Dashboard](assets/screenshots/dashboard.png)
 
 ### 🏘️ Rooms Page
-![Rooms Page](assets/screenshots/rooms_page.png)
+![Rooms Page](assets/screenshots/rooms.png)
 
 
 ---
