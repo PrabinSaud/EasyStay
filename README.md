@@ -55,7 +55,6 @@ EasyStay/
 ### 🏘️ Rooms Page
 ![Rooms Page](assets/screenshots/rooms.png)
 
-
 ---
 
 # 📌 EasyStay – Student Accommodation & Resource Platform  
