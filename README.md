@@ -1,90 +1,124 @@
-# EasyStay 
+# EasyStay  
+
+## 🔗 Live Application
+
+👉 https://oracleapex.com/ords/r/geeksdatabase/easystay/home?session=116833621207973
+
+
+---
+
+## 📂 Project Structure
 
 EasyStay/
 │
-├── README.md
-│   └── Project description, features, tech stack, and usage
+├── README.md  
+│   └── Project description, features, tech stack, and usage  
 │
-├── database/
-│   ├── easystay_schema.sql
-│   │   └── CREATE TABLE statements
-│   ├── sample_data.sql
-│   │   └── Sample INSERT data for testing
+├── database/  
+│   ├── easystay_schema.sql  
+│   │   └── CREATE TABLE statements  
+│   ├── sample_data.sql  
+│   │   └── Sample INSERT data for testing  
 │
-├── apex/
-│   ├── application_export.sql
-│   │   └── Oracle APEX application export file
+├── apex/  
+│   ├── application_export.sql  
+│   │   └── Oracle APEX application export file  
 │
-├── assets/
-│   ├── images/
-│   │   ├── hero_image.png
-│   │   └── icons/
-│   └── screenshots/
-│       ├── home_page.png
-│       ├── dashboard.png
-│       └── rooms_page.png
+├── assets/  
+│   ├── images/  
+│   │   ├── hero_image.png  
+│   │   └── icons/  
+│   └── screenshots/  
+│       ├── home_page.png  
+│       ├── dashboard.png  
+│       └── rooms_page.png  
 │
-├── docs/
-│   ├── er_diagram.png
-│   ├── project_report.pdf
-│   └── wireframes/
-│       └── home_wireframe.png
+├── docs/  
+│   ├── er_diagram.png  
+│   ├── project_report.pdf  
+│   └── wireframes/  
+│       └── home_wireframe.png  
 │
-└── .gitignore
+└── .gitignore  
 
-📌 EasyStay – Student Accommodation & Resource Platform
-📖 Project Description
 
-EasyStay is a student-focused web application designed to help students who move to a new city or state for their education. Many students face difficulties such as finding affordable rooms, furniture, cooking materials, and shared accommodation. EasyStay solves these problems by providing a single platform where students can easily access all these resources.
+---
 
-The application allows students to explore rooms for rent near their college, buy or sell furniture and essential items, share free items, and find roommates for shared living. The project focuses on simplicity, accessibility, and affordability, especially for students from middle-class and low-budget backgrounds.
+## 🖼️ Application Screenshots
 
-🎯 Why I Chose This Project
+### 🏠 Home Page
+![Home Page](assets/screenshots/home_page.png)
 
-I chose EasyStay because it is based on real problems faced by students during relocation. Finding accommodation and basic living items is often difficult and time-consuming, especially for students with limited budgets.
+### 📊 Dashboard
+![Dashboard](assets/screenshots/dashboard.png)
 
-Instead of building a common or theoretical project, I wanted to work on a practical and real-world problem. This project helped me understand how database-driven applications are designed and how SQL can be used to manage real-life data effectively.
+### 🏘️ Rooms Page
+![Rooms Page](assets/screenshots/rooms_page.png)
 
-🛠️ Technologies Used
 
-Database: MySQL
+---
 
-Backend / Application Layer: Oracle APEX
+# 📌 EasyStay – Student Accommodation & Resource Platform  
 
-Frontend UI: Oracle APEX Universal Theme
+## 📖 Project Description  
 
-Version Control: Git & GitHub
+EasyStay is a student-focused web application designed to help students who move to a new city or state for their education. Many students face difficulties such as finding affordable rooms, furniture, cooking materials, and shared accommodation. EasyStay solves these problems by providing a single platform where students can easily access all these resources.  
 
-✨ Key Features
+The application allows students to explore rooms for rent near their college, buy or sell furniture and essential items, share free items, and find roommates for shared living. The project focuses on simplicity, accessibility, and affordability, especially for students from middle-class and low-budget backgrounds.  
 
-Browse rooms available for rent near the college
 
-Buy and sell furniture, books, and cooking materials
+---
 
-Share free items with other students
+## 🎯 Why I Chose This Project  
 
-Find roommates for shared accommodation
+I chose EasyStay because it is based on real problems faced by students during relocation. Finding accommodation and basic living items is often difficult and time-consuming, especially for students with limited budgets.  
 
-Simple and user-friendly interface
+Instead of building a common or theoretical project, I wanted to work on a practical and real-world problem. This project helped me understand how database-driven applications are designed and how SQL can be used to manage real-life data effectively.  
 
-📌 Project Objective
 
-The objective of EasyStay is to reduce the challenges students face while relocating to a new place for education. The project demonstrates how SQL and relational databases can be used to build meaningful and useful applications.
+---
 
-🚀 Future Improvements
+## 🛠️ Technologies Used  
 
-User authentication and profile management
+- **Database:** MySQL  
+- **Backend / Application Layer:** Oracle APEX  
+- **Frontend UI:** Oracle APEX Universal Theme  
+- **Version Control:** Git & GitHub  
 
-Mobile-friendly design
 
-Chat system between students
+---
 
-Job and internship listings
+## ✨ Key Features  
 
-Online booking and payment integration
+- Browse rooms available for rent near the college  
+- Buy and sell furniture, books, and cooking materials  
+- Share free items with other students  
+- Find roommates for shared accommodation  
+- Simple and user-friendly interface  
 
-👤 Author
 
-Name: Prabin Saud
-Course: BCA
-Project Type: Academic Project
+---
+
+## 📌 Project Objective  
+
+The objective of EasyStay is to reduce the challenges students face while relocating to a new place for education. The project demonstrates how SQL and relational databases can be used to build meaningful and useful applications.  
+
+
+---
+
+## 🚀 Future Improvements  
+
+- User authentication and profile management  
+- Mobile-friendly design  
+- Chat system between students  
+- Job and internship listings  
+- Online booking and payment integration  
+
+
+---
+
+## 👤 Author  
+
+**Name:** Prabin Saud  
+**Course:** BCA  
+**Project Type:** Academic Project  
