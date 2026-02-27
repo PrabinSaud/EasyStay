@@ -4,7 +4,8 @@
 
 👉 https://oracleapex.com/ords/r/geeksdatabase/easystay/home?session=116833621207973
 
-
+Default email : easystay@gmail.com
+Default password : student123
 ---
 
 ## 📂 Project Structure
